@@ -60,6 +60,7 @@ namespace Iteratie_demo
                 $"Je hebt nog {numberOfBlocks - CalculateNumberOfBlocks(layers)} blokken over");
         }
 
+
         private static int CalculateNumberOfLayers(int numberOfBlocks)
         {
             int remainingNumberBlocks = numberOfBlocks;
