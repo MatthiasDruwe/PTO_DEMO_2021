@@ -8,5 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Canvas x:Name="drawingCanvas" Background="BurlyWood"/>
+        <Label x:Name="scoreLabel" HorizontalAlignment="Center" VerticalAlignment="top"/>
+
     </Grid>
 </Window>
