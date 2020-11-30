@@ -9,24 +9,17 @@ namespace AutoDemo
 
         static void Main(string[] args)
         {
-            Auto mijnAuto = new Auto();
-            mijnAuto.merk = "Ford";
-            mijnAuto.model = "Focus";
-            mijnAuto.bouwjaar = new DateTime(2010, 10, 1);
-            mijnAuto.kleur = "Grijs";
-            mijnAuto.aantalDeuren = 5;
-            alleAutos.Add(mijnAuto);
+            Auto mijnAuto = new Auto("Ford", "Focus", new DateTime(2010, 10, 1), 5);
+            //alleAutos.Add(mijnAuto);
+            mijnAuto.Kleur = "groen";
 
+            mijnAuto = null;
             mijnAuto.RijdVoorwaarts();
             mijnAuto.RijdAchterwaarts();
             mijnAuto.Remmen();
 
             Auto tomZijnAuto = new Auto();
-            tomZijnAuto.merk = "Opel";
-            tomZijnAuto.model = "Corsa";
-            tomZijnAuto.bouwjaar = new DateTime(2020, 10, 1);
-            tomZijnAuto.kleur = "Groene";
-            tomZijnAuto.aantalDeuren = 3;
+    
             alleAutos.Add(tomZijnAuto);
 
 
@@ -45,13 +38,13 @@ namespace AutoDemo
         {
             foreach (Auto auto in alleAutos)
             {
-                printAuto(auto);
+                // printAuto(auto);
             }
         }
 
-        static void printAuto(Auto auto)
+/*        static void printAuto(Auto auto)
         {
             Console.WriteLine($"Je rijdt met een {auto.merk} {auto.model}");
-        }
+        }*/
     }
 }
