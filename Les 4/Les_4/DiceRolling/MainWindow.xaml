@@ -1,0 +1,32 @@
+﻿<Window x:Class="DiceRolling.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiceRolling"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="366">
+    <Grid>
+        <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Image x:Name="rolledNumber1Image" Width="112" Height="112"/>
+                <Label x:Name="rolledNumber1Label"/>
+                <Button Click="Button_Click1">Roll</Button>
+            </StackPanel>
+            <StackPanel>
+                <Image x:Name="rolledNumber2Image" Width="112" Height="112"/>
+                <Label x:Name="rolledNumber2Label"/>
+                <Button Click="Button_Click2">Roll</Button>
+            </StackPanel>
+            <StackPanel>
+                <Image x:Name="rolledNumber3Image" Width="112" Height="112"/>
+                <Label x:Name="rolledNumber3Label"/>
+                <Button Click="Button_Click3">Roll</Button>
+            </StackPanel>
+        </StackPanel>
+            <Button Click="Button_Click">Roll All</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
