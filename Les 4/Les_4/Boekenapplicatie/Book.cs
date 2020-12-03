@@ -1,4 +1,6 @@
-﻿namespace Boekenapplicatie
+﻿using System;
+
+namespace Boekenapplicatie
 {
     class Book
     {
@@ -52,6 +54,8 @@
             set { reader = value; }
         }
 
+ 
+
 
         // Methodes (public & private)
         public string NextPage()
@@ -63,6 +67,15 @@
             }
 
             return "Einde van het boek!";
+        }
+
+        public void StartReading()
+        {
+            do
+            {
+                Console.WriteLine(NextPage());
+            } while (Console.ReadKey().KeyChar != 'x');
+            
         }
 
         public string ToString()

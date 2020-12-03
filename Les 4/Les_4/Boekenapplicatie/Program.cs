@@ -13,30 +13,26 @@ namespace Boekenapplicatie
             List<Book> books = new List<Book>();
             books.Add(myFirstBook);
             books.Add(mySecondBook);
-
-            Console.WriteLine($"Ik lees momenteel \"{myFirstBook.ToString()}\"");
-
-
-            Console.WriteLine($"{myFirstBook.Reader} leest het boek");
-
             myFirstBook.Reader = "Matthias";
 
-            Console.WriteLine($"{myFirstBook.Reader} leest het boek");
+            char action;
 
-
-            while (true)
+            do
             {
-                char c = Console.ReadKey().KeyChar;
-                Console.Clear();
-                if (c == '1')
+                Console.WriteLine("Welk boek wil je lezen?");
+                action = Console.ReadKey().KeyChar;
+                switch (action)
                 {
-                    Console.WriteLine(myFirstBook.NextPage());
+                    case '1':
+                        books[0].StartReading();
+                        break;
+                    case '2':
+                        books[1].StartReading();
+                        break;
                 }
-                else if (c == '2')
-                {
-                    Console.WriteLine(mySecondBook.NextPage());
-                }
-            }
+
+            } while (action != 'x');
+           
         }
     }
 }
