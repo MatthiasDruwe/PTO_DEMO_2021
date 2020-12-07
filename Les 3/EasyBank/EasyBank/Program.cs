@@ -18,29 +18,32 @@ namespace EasyBank
 {
     class Program
     {
-        
-        private static List<double> rekeningen = new List<double>();
-        
+
+        private static List<Rekening> rekeningen = new List<Rekening>();
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Welkom bij de bank!");
+            Console.WriteLine("#######################");
+            Console.WriteLine("# Welkom bij de bank! #");
+            Console.WriteLine("#######################");
+
             char keuze;
+
             do
             {
                 Console.WriteLine("a. Nieuwe rekening aanmaken.");
                 Console.WriteLine("b. Rekening kiezen. ");
-                Console.WriteLine("d. Afsluiten");
+                Console.WriteLine("c. Afsluiten");
                 keuze = Convert.ToChar(Console.ReadKey().KeyChar.ToString().ToLower());
                 Console.WriteLine();
-                keuzeMenu1(keuze);
-            }
-            while (keuze != 'd');
+                VoerActieUit(keuze);
+            } while (keuze != 'd');
+
             Console.WriteLine(" Bedankt en tot ziens!");
             Console.ReadKey();
         }
 
-        private static void keuzeMenu1 (char keuze)
+        private static void VoerActieUit(char keuze)
         {
             if (keuze == 'a')
             {
@@ -48,98 +51,36 @@ namespace EasyBank
             }
             else if (keuze == 'b')
             {
-                int rekening = kiezenRekening();
-                bankMenu(rekening);
+                Rekening rekening = kiezenRekening();
+                rekening.ToonMenu();
             }
 
         }
-  
-        private static int kiezenRekening()
+
+        private static Rekening kiezenRekening()
         {
             //voor elke rekening een apparte variabele maken van saldo?
             Console.WriteLine("welke rekening wil je gebruiken? ");
 
             int rekeningCounter = 0;
-            foreach (double rekening in rekeningen)
+            foreach (Rekening rekening in rekeningen)
             {
                 rekeningCounter++;
-                Console.WriteLine("-Rekening " + rekeningCounter + " met saldo: " + rekening);
+                Console.WriteLine( $"{rekeningCounter}) {rekening.Print()}");
             }
             int rekeningKeuze = Convert.ToInt32(Console.ReadLine());
-            return rekeningKeuze;
+
+            return rekeningen[rekeningKeuze-1];
 
         }
 
         private static void aanmakenRekening()
         {
-            rekeningen.Add(0);
-        }
+            Console.WriteLine("Welke naam wil je de rekening geven?");
+            string naam = Console.ReadLine();
 
-        private static void bankMenu(int rekening)
-        {
-            char keuze;
-            do
-            {
-                Console.WriteLine("a. Afhalen.");
-                Console.WriteLine("b. Storten.");
-                Console.WriteLine("c. Check saldo.");
-                Console.WriteLine("d. Terug naar hoofdmenu.");
-                keuze = Convert.ToChar(Console.ReadKey().KeyChar.ToString().ToLower());
-                Console.WriteLine();
-                keuzeMenu2(keuze, rekening);
-            }
-            while (keuze != 'd');
-        }
-
-        private static void keuzeMenu2(char keuze, int rekening)
-        {
-            if (keuze == 'a')
-            {
-                geldAfhalen(rekening);
-            }
-            else if (keuze == 'b')
-            {
-                geldStorten(rekening);
-            }
-            else if (keuze == 'c')
-            {
-                toonSaldo(rekening);
-            }
-        }
-
-        private static void geldAfhalen(int rekening)
-        {
-
-            Console.WriteLine("Hoeveel wil je afhalen?");
-            double bedrag = Convert.ToDouble(Console.ReadLine());
-            bedrag = Math.Round(bedrag, 2);
-
-            if (bedrag > rekeningen[rekening])
-            {
-                Console.WriteLine("Saldo ontoereikend op rekening " + rekening);
-            }
-            else
-            {
-                rekeningen[rekening] -= bedrag;
-                Console.WriteLine("afhaling OK: " + bedrag + " afgehaald van rekening " + rekening);
-                toonSaldo(rekening);
-            }
-        }
-        private static void geldStorten(int rekening)
-        {
-            Console.WriteLine("Hoeveel wil je storten?");
-            
-            double bedrag = Convert.ToDouble(Console.ReadLine());
-            bedrag = Math.Round(bedrag, 2);
-            rekeningen[rekening] += bedrag;
-
-            Console.WriteLine("Storting OK: " + bedrag + " gestort op rekening " + rekening);
-            toonSaldo(rekening);
-        }
-
-        private static void toonSaldo(int rekening)
-        {
-            Console.WriteLine($"Uw saldo bedraagt: {rekeningen[rekening]:c}");
+            Rekening nieweRekening = new Rekening(naam);
+            rekeningen.Add(nieweRekening);
         }
     }
 }
