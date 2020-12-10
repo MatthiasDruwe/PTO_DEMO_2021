@@ -1,0 +1,17 @@
+﻿<Window x:Class="Recap.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Recap"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Button x:Name="OpenFileDialogButton" Margin="5" Click="OpenFileDialogButton_Click">OpenFileDialog</Button>
+            <Button x:Name="SaveFileDialogButton" Margin="5" Click="SaveFileDialogButton_Click">SaveFileDialog</Button>
+            <Button x:Name="FolderBrowserDialogButton" Margin="5" Click="FolderBrowserDialogButton_Click">FolderBrowserDialog</Button>
+            <Button x:Name="OpenNewWindowButton" Margin="5" Click="OpenNewWindowButton_Click">New windows</Button>
+        </StackPanel>
+    </Grid>
+</Window>
