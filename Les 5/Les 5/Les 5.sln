@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Files_and_folders", "Files_and_folders\Files_and_folders.csproj", "{7A283988-5450-4809-8B8D-3B4C50CDDB8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextEditor", "TextEditor\TextEditor.csproj", "{CAB4740E-0EE0-4FF9-A2E1-05956E88675E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowClasses", "WindowClasses\WindowClasses.csproj", "{436799B2-8D8E-4A72-AB24-0B7BCFB804DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7A283988-5450-4809-8B8D-3B4C50CDDB8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A283988-5450-4809-8B8D-3B4C50CDDB8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A283988-5450-4809-8B8D-3B4C50CDDB8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAB4740E-0EE0-4FF9-A2E1-05956E88675E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAB4740E-0EE0-4FF9-A2E1-05956E88675E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAB4740E-0EE0-4FF9-A2E1-05956E88675E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAB4740E-0EE0-4FF9-A2E1-05956E88675E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{436799B2-8D8E-4A72-AB24-0B7BCFB804DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{436799B2-8D8E-4A72-AB24-0B7BCFB804DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{436799B2-8D8E-4A72-AB24-0B7BCFB804DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{436799B2-8D8E-4A72-AB24-0B7BCFB804DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

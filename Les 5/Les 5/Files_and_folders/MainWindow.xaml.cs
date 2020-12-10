@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Forms;
 using Forms = System.Windows.Forms;
+using MessageBox = System.Windows.MessageBox;
 
 namespace Files_and_folders
 {
@@ -14,7 +15,7 @@ namespace Files_and_folders
         public MainWindow()
         {
             InitializeComponent();
-            DemoDirectories();
+            DemoFile();
         }
 
         private void DemoDirectories()
@@ -26,8 +27,46 @@ namespace Files_and_folders
             var x = files.Length;
         }
 
-        private void DemoFiles()
+        private void DemoStreamWriter()
         {
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "demoles5.txt");
+
+            StreamWriter streamWriter = new StreamWriter(path);
+            streamWriter.WriteLine("Hello World2!");
+            streamWriter.WriteLine("Dag Wereld2!");
+            streamWriter.Close();
+        }
+
+        private void DemoStreamReader()
+        {
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "demoles5.txt");
+
+            // open streamreader
+            StreamReader streamReader = new StreamReader(path);
+            
+
+            // bestand lijn per lijn inlezen
+            string line = streamReader.ReadLine();
+            while (line != null) 
+            {
+                MessageBox.Show(line);
+                line = streamReader.ReadLine();
+            } 
+
+            // sluit streamreader
+            streamReader.Close();
+
+        }
+
+        private void DemoFile()
+        {
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "demoles5.txt");
+            MessageBox.Show(File.ReadAllText(path));
+            File.WriteAllText(path, "new text");
+            StreamWriter streamWriter = File.CreateText(path);
+            streamWriter.WriteLine("Hello World2!");
+            streamWriter.WriteLine("Dag Wereld2!");
+            streamWriter.Close();
 
         }
 

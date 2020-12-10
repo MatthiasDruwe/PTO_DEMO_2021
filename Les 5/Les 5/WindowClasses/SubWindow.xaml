@@ -1,0 +1,17 @@
+﻿<Window x:Class="WindowClasses.SubWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WindowClasses"
+        mc:Ignorable="d"
+        Title="SubWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>  
+            <Label x:Name="messageLabel">Hello World!</Label>
+            <Button x:Name="fietsButton" Click="fietsButton_Click">Ik rijd met de fiets</Button>
+            <Button x:Name="autoButton" Click="autoButton_Click">Ik rijd met de auto</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
