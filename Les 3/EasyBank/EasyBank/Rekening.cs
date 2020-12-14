@@ -59,7 +59,7 @@ namespace EasyBank
             }
         }
 
-        private void ToonVerrichting()
+        protected void ToonVerrichting()
         {
             Console.WriteLine("Een lijst van verrichtingen");
         }
@@ -83,7 +83,7 @@ namespace EasyBank
             }
         }
 
-        private void GeldStorten()
+        protected void GeldStorten()
         {
             Console.WriteLine("Hoeveel wil je storten?");
 
@@ -95,7 +95,7 @@ namespace EasyBank
             ToonSaldo();
         }
 
-        private void ToonSaldo()
+        protected void ToonSaldo()
         {
             Console.WriteLine($"Uw saldo bedraagt: {BerekenTotaalSaldo()}");
         }
@@ -110,6 +110,24 @@ namespace EasyBank
             }
 
             return totaalSaldo;
+        }
+
+        public bool OverschrijvenNaar(Rekening rekening, double bedrag)
+        {
+            if(BerekenTotaalSaldo() < bedrag)
+            {
+                return false;
+            }
+            bedrag = Math.Round(bedrag, 2);
+            verrichtingen.Add(-bedrag);
+
+            rekening.GeldStorten(bedrag);
+            return true;
+        }
+
+        public void GeldStorten(double bedrag)
+        {
+            verrichtingen.Add(bedrag);
         }
     }
 }
