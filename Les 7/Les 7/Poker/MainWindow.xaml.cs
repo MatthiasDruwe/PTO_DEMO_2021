@@ -24,7 +24,6 @@ namespace Poker
         public MainWindow()
         {
             InitializeComponent();
-
             Card card = new Card(Suit.Clubs, 1000);
             Card card2 = new Card(Suit.Hearts, 1);
             Card card3 = new Card(Suit.Spades, 1);
@@ -43,6 +42,9 @@ namespace Poker
             Debug.WriteLine(card7);
             Debug.WriteLine(card8);
 
+            string[] suits = Enum.GetNames(typeof(Suit));
+            suitsComboBox.ItemsSource = suits;
+            
             
         }
     }
