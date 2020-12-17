@@ -1,0 +1,32 @@
+﻿<Window x:Class="PacketManager.Views.VendingMachinePackageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PacketManager.Views"
+        mc:Ignorable="d"
+        Title="VendingMachinePackageWindow" Height="250" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Label Margin="5" Padding="5" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Verzender:</Label>
+        <Label Margin="5" Padding="5" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Grootte:</Label>
+        <Label Margin="5" Padding="5" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Pakjesautomaat:</Label>
+        <TextBox x:Name="senderTextBox" Margin="5" Padding="5" Grid.Column="1" Grid.Row="0"/>
+        <ComboBox x:Name="sizeComboBox" Margin="5" Padding="5" Grid.Column="1" Grid.Row="1"/>
+        <ComboBox x:Name="vendingMachineComboBox" Margin="5" Padding="5" Grid.Column="1" Grid.Row="2"/>
+        <StackPanel Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="CancelButton" Margin="5" Padding="5" Click="CancelButton_Click">Cancel</Button>
+            <Button x:Name ="SaveButton" Margin="5" Padding="5" Click="SaveButton_Click">Save</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

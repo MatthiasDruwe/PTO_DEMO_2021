@@ -1,0 +1,40 @@
+﻿<Window x:Class="PacketManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PacketManager"
+        mc:Ignorable="d"
+        Title="Bpost management system" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Pakjes">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox x:Name="packageListbox" Margin="5"/>
+                    <StackPanel Grid.Column="1">
+                        <Button x:Name="newVendingMachinePackageButton" Margin="5" Padding="5" Click="newVendingMachinePackageButton_Click" >Nieuw pakjesautmaatpakje</Button>
+                        <Button x:Name="newAddressPackageButton" Margin="5" Padding="5" Click="newAddressPackageButton_Click">Nieuw adrespakje</Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Pakjesautomaten">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox x:Name="VendingMachineListBox" Margin="5"/>
+                    <StackPanel Grid.Column="1">
+                        <Button x:Name="newVendingMachineButton" Margin="5" Padding="5" Click="newVendingMachineButton_Click">Nieuwe pakjesautomaat</Button>
+                        <Button x:Name="editVendingMachineButton" Margin="5" Padding="5" Click="editVendingMachineButton_Click">Pas pakjesautomaat aan</Button>
+                        <Button x:Name="deleteVendingMachineButton" Margin="5" Padding="5" Click="deleteVendingMachineButton_Click">Verwijder pakjesautomaat</Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
