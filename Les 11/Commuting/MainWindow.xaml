@@ -21,9 +21,6 @@
             <Button Margin="5" x:Name="addCarButton" Click="addCarButton_Click">Add Car</Button>
             <Button Margin="5" x:Name="addBikeButton" Click="addBikeButton_Click">Add Bike</Button>
             <Button Margin="5" x:Name="addTrainButton" Click="addTrainButton_Click">Add Train</Button>
-            <Button Margin="5" x:Name="saveButton">Save</Button>
-            <Button Margin="5" x:Name="loadButton">Load</Button>
-
         </StackPanel>
     </Grid>
 </Window>

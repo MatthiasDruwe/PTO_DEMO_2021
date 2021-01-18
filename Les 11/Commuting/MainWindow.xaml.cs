@@ -1,5 +1,6 @@
 ﻿using Commuting.Model;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -104,28 +105,14 @@ namespace WpfApp4
 
         private double CalculateTotalRefund()
         {
-            double refund = 0;
-
-            foreach(Commute commute in commutingListBox.Items)
-            {
-                refund = refund + commute.CalculateRefund();
-            }
-
-            return refund;
+           
+            return commutingListBox.Items.OfType<Commute>().Sum(GetRefund);
         }
 
-        private void saveButton_Click(object sender, RoutedEventArgs e)
+        private double GetRefund(Commute commute)
         {
-            // Create file
-            // Loop over alle commutes
-            // commute.ToCSVLine() opslaan in bestand.
+            return commute.CalculateRefund();
         }
 
-        private void loadButton_Click(object sender, RoutedEventArgs e)
-        {
-            // lijn per lijn van file overlopen 
-            string line = "Car;to;from;date;distance"
-            Commute.CreateCommuteFromCSVLine(line)
-        }
     }
 }
