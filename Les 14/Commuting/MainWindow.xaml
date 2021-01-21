@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfApp4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp4"
+        mc:Ignorable="d"
+        Title="Woon-werkverkeer" Height="450" Width="400" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel>
+            <Label x:Name="totalRefundTextBox" DockPanel.Dock="Bottom"/>
+            <ListBox x:Name="commutingListBox"/>
+        </DockPanel>
+        
+
+        <StackPanel Grid.Column="1">
+            <Button Margin="5" x:Name="addCarButton" Click="addCarButton_Click">Add Car</Button>
+            <Button Margin="5" x:Name="addBikeButton" Click="addBikeButton_Click">Add Bike</Button>
+            <Button Margin="5" x:Name="addTrainButton" Click="addTrainButton_Click">Add Train</Button>
+        </StackPanel>
+    </Grid>
+</Window>
