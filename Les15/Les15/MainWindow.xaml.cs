@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,23 @@ namespace Les15
         public MainWindow()
         {
             InitializeComponent();
+
+            StreamWriter streamWriter = new StreamWriter("newFile.txt");
+
+            try
+            {
+                streamWriter.WriteLine("Demo");
+                
+            }
+            catch
+            {
+                // Los Probleem op.
+                
+            }
+            finally
+            {
+                streamWriter.Close();
+            }
         }
     }
 }

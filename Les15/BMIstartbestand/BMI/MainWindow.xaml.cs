@@ -2,6 +2,7 @@
 using BMI.Repository;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -81,7 +82,21 @@ namespace BMI
         {
             if (userListBox.SelectedItem != null && periodComboBox.SelectedIndex != null)
             {
+                try { 
                 maxBmiLabel.Content = bmiRepository.GetMaxBmiFor((User)userListBox.SelectedItem, (TimePeriod)periodComboBox.SelectedItem);
+                }
+                catch (InvalidOperationException exception)
+                {
+                    Debug.WriteLine(exception.ToString());
+                    Debug.WriteLine("-----");
+                    Debug.WriteLine(exception.Message);
+                
+                }
+                catch (ArgumentNullException exception)
+                {
+                    MessageBox.Show("NullRef exception");
+                  
+                }
             }
         }
 

@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
+using System.Windows;
 
 namespace BMI.Repository
 {
@@ -50,14 +52,33 @@ namespace BMI.Repository
             }
 
             return dbContext.BmiData.Where(bmi => bmi.UserId == user.Id && bmi.Date <= max && bmi.Date > min)
-                  .ToList()
-                  .OrderByDescending(bmi => bmi.BMI)
+                    .ToList()
+                    .OrderByDescending(bmi => bmi.BMI)
                   .ToList();
         }
 
-        public double GetMaxBmiFor(User user, TimePeriod period)
+        public string GetMaxBmiFor(User user, TimePeriod period)
         {
-            return GetAllBmiFor(user, period).Max(bmi => bmi.BMI);
+
+            string max;
+            try
+            {
+                max = GetAllBmiFor(user, period).Max(bmi => bmi.BMI).ToString();
+            }
+            catch (InvalidOperationException exception)
+            {
+                Debug.WriteLine(exception.ToString());
+                Debug.WriteLine("-----");
+                Debug.WriteLine(exception.Message);
+                return "-";
+            }
+            catch (ArgumentNullException exception)
+            {
+                MessageBox.Show("NullRef exception");
+                return "-";
+            }
+
+            return max;
         }
 
         // Update
@@ -67,7 +88,7 @@ namespace BMI.Repository
             dbContext.Entry<Bmi>(bmi).State = EntityState.Modified;
             dbContext.SaveChanges();
         }
-        
+
         // Delete 
         public void Delete(Bmi bmi)
         {
